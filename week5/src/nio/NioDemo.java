@@ -13,12 +13,16 @@ public class NioDemo {
         try {
              fis = new FileInputStream(new File(begin));
              fos = new FileOutputStream(end);
+             //获取传输通道
              fisChannel = fis.getChannel();
              fosChannel = fos.getChannel();
+             //获取缓存容器
             ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
             while (fisChannel.read(byteBuffer) != -1){
+                //将 Buffer 从写模式切换到读模式
                 byteBuffer.flip();
                 fosChannel.write(byteBuffer);
+                //清空缓冲区
                 byteBuffer.clear();
             }
         } catch (FileNotFoundException e) {
