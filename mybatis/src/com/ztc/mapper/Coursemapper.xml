@@ -10,7 +10,8 @@
     </select>
 
     <insert id="insertCourse">
-   /*insert into Course values (#{cno},#{cname},#{credit},#{semester})*/
+
+        <!-- insert into Course values (#{cno},#{cname},#{credit},#{semester})-->
         insert into Course values (#{course.cno},#{course.cname},#{course.credit},#{course.semester})
     </insert>
 
