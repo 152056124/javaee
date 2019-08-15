@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace给一个命名空间-->
+<mapper namespace="com.ztc.mapper.Coursemapper">
+    <!--resultType告诉mybatis这个查询语句要封装哪个类-->
+    <select id="selectCourse" resultType="com.ztc.entity.Course">
+    select * from Course where Cno = #{aa}
+    </select>
+
+    <insert id="insertCourse">
+   /*insert into Course values (#{cno},#{cname},#{credit},#{semester})*/
+        insert into Course values (#{course.cno},#{course.cname},#{course.credit},#{course.semester})
+    </insert>
+
+    <delete id="deleteCourse">delete from  Course where Cno = 'C009'</delete>
+
+    <update id="updateCourse">
+        update Course set Cname = '数学课',Semester = 2 where cno = 'C009'
+    </update>
+</mapper>
