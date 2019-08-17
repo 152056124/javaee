@@ -1,11 +1,23 @@
 package com.ztc.entity;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("sco")
 public class Score {
     private  String sid;
     private  String cid;
     private  int score;
+    private  Student student;
 
     public Score() {
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public String getSid() {
@@ -38,6 +50,7 @@ public class Score {
                 "sid='" + sid + '\'' +
                 ", cid='" + cid + '\'' +
                 ", score=" + score +
+                ", student=" + student +
                 '}';
     }
 }

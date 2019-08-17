@@ -3,10 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    
+
+    <!--设置日志-->
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
+    <!--设置别名，该标签不能位于settings之上-->
+    <typeAliases>
+<!--        <typeAlias type="com.ztc.entity.Student" alias="Students"></typeAlias>-->
+        <package name="com.ztc.entity"/>
+    </typeAliases>
 
     <!-- 配置数据源，数据库连接信息，支持配置多个，default为默认连接信息   -->
     <environments default="development">
