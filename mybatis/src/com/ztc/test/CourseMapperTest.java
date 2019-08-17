@@ -1,18 +1,15 @@
-package com.ztc.mapper;
+package com.ztc.test;
 
 import com.ztc.entity.Course;
+import com.ztc.mapper.Coursemapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-public class MapperTest {
+public class CourseMapperTest {
     public static void main(String[] args) {
         SqlSessionFactory sessionFactory  = new SqlSessionFactoryBuilder().build(
-                MapperTest.class.getClassLoader().getResourceAsStream("mybatis.xml"));
+                CourseMapperTest.class.getClassLoader().getResourceAsStream("mybatis.xml"));
         SqlSession session = sessionFactory.openSession();
         Coursemapper mapper = session.getMapper(Coursemapper.class);
 //        mapper.selectCourse("C005");
@@ -31,7 +28,7 @@ public class MapperTest {
         course.setCname("测试课");
         course.setCredit(5);
         course.setSemester(1);
-          mapper.insertCourse(course);
+        mapper.insertCourse(course);
 
 //        List<Course> courseList = session.selectList("selectCourse");
 //        session.insert("insertCourse");
