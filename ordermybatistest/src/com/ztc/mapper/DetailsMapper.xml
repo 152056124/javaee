@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztc.mapper.DetailsMapper">
+    <resultMap id="detailsResultMap" type="Details">
+        <id column="details_id" property="detailsId"/>
+        <id column="order_id" property="orderId"/>
+        <id column="member_id" property="memberId"/>
+        <id column="count" property="count"/>
+    </resultMap>
+
+    <insert id="insertDetails">
+        insert into details (<include refid="allColumn"></include>) values (#{detailsId},#{orderId},#{memberId},#{count})
+    </insert>
+
+    <sql id="allColumn">
+        details_id,order_id,member_id,count
+    </sql>
+
+    <select id="selectDetails" resultMap="detailsResultMap">
+        select <include refid="allColumn"></include> from details where details_id = #{detailsId}
+    </select>
+
+    <update id="updateDetails">
+        update details set count = #{count} where details_id = #{detailsId}
+    </update>
+
+    <delete id="deleteDetails">
+        delete from details where details_id = #{detailsId}
+    </delete>
+</mapper>
