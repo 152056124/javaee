@@ -12,4 +12,10 @@ public interface DetailsMapper {
     int updateDetails(Details details);
 
     int deleteDetails(String detailsId);
+
+    List<Details> selectAll(Details details);
+
+    int updateAll(Details details);
+
+    List<Details> selectIn(List<String> detailsId);
 }
