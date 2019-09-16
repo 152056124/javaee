@@ -11,11 +11,22 @@
         <result property="sex" column="s_sex"/>
     </resultMap>
     <!--resultType告诉mybatis这个查询语句要封装哪个类-->
+    <sql id="column">
+        s_id,s_name,s_birth,s_sex
+    </sql>
+
     <select id="selectStudent" resultMap="studentResultMap">
         select s_id,s_name,s_birth,s_sex from student
     </select>
     <delete id="deleteStudentById">
         delete from student where s_id = #{sid}
     </delete>
+    <insert id="insertStudent">
+        insert into student (<include refid="column"></include>) values (#{sid},#{sname},#{sbirthday},#{sex})
+    </insert>
+
+    <update id="updateStudentById">
+        update student set s_name = #{sname},s_birth = #{sbirthday},s_sex = #{sex} where s_id = #{sid}
+    </update>
 
 </mapper>

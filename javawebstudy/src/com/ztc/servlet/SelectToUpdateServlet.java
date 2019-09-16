@@ -13,8 +13,7 @@ import java.util.List;
 
 import static com.ztc.until.SqlSessionUntil.getSqlSession;
 
-public class SelectStudentServlet extends HttpServlet {
-    @Override
+public class SelectToUpdateServlet extends HttpServlet {
     public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         StudentMapper studentMapper = getSqlSession().getMapper(StudentMapper.class);
         List<Student> students = studentMapper.selectStudent();
@@ -38,31 +37,24 @@ public class SelectStudentServlet extends HttpServlet {
         html += "</thead>";
         html += "<tbody>";
         html += "<form action=\"insert\" method=\"post\">";
-        html += "<tr>";
-        html += "<td><input type=\"text\" name=\"sid\" value=\"\"></td>";
-        html += "<td><input type=\"text\" name=\"sname\" value=\"\"></td>";
-        html += "<td><input type=\"text\" name=\"sbirth\" value=\"\"></td>";
-        html += "<td><input type=\"text\" name=\"sex\" value=\"\"></td>";
-        html += "<td><input type=\"submit\"  value=\"增加\"></td>";
-        html += "</tr>";
         html += "</form>";
         for (Student student : students) {
             html += "<tr>";
-            html += "<form action=\"delete\" method=\"get\">";
+            html += "<form action=\"update\" method=\"get\">";
             html += "<td><input type=\"text\" name=\"sid\" value="+student.getSid()+"></td>";
-            html += "<td>" + student.getSname() + "</td>";
-            html += "<td>" + student.getSbirthday() + "</td>";
-            html += "<td>" + student.getSex() + "</td>";
+            html += "<td><input type=\"text\" name=\"sname\" value="+student.getSname()+"></td>";
+            html += "<td><input type=\"text\" name=\"sbirth\" value="+student.getSbirthday()+"></td>";
+            html += "<td><input type=\"text\" name=\"sex\" value="+student.getSex()+"></td>";
             html += "<td>";
-            html += "<input type=\"submit\" value=\"删除\">";
+            html += "<input type=\"submit\" value=\"修改\">";
             html += "</td>";
             html += "</form>";
             html += "</tr>";
         }
         html += "</tbody>";
         html += "</table>";
-        html += "<form action=\"stou\" method=\"post\">";
-        html += "<input type=\"submit\" value=\"修改数据\">";
+        html += "<form action=\"select\" method=\"post\">";
+        html += "<input type=\"submit\" value=\"返回\">";
         html += "</form>";
         html += "</body>";
         html += "</html>";

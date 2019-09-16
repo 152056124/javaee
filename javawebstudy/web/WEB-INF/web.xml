@@ -20,4 +20,31 @@
         <servlet-name>deleteStudent</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>insertStudent</servlet-name>
+        <servlet-class>com.ztc.servlet.InsertStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>insertStudent</servlet-name>
+        <url-pattern>/insert</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateStudent</servlet-name>
+        <servlet-class>com.ztc.servlet.UpdateStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateStudent</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>selectToUpdate</servlet-name>
+        <servlet-class>com.ztc.servlet.SelectToUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>selectToUpdate</servlet-name>
+        <url-pattern>/stou</url-pattern>
+    </servlet-mapping>
 </web-app>
