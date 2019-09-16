@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace给一个命名空间-->
+<mapper namespace="com.ztc.mapper.StudentMapper">
+    <resultMap id="studentResultMap" type="Student">
+        <id property="sid" column="s_id"/>
+        <result property="sname" column="s_name"/>
+        <result property="sbirthday" column="s_birth"/>
+        <result property="sex" column="s_sex"/>
+    </resultMap>
+    <!--resultType告诉mybatis这个查询语句要封装哪个类-->
+    <select id="selectStudent" resultMap="studentResultMap">
+        select s_id,s_name,s_birth,s_sex from student
+    </select>
+    <delete id="deleteStudentById">
+        delete from student where s_id = #{sid}
+    </delete>
+
+</mapper>
