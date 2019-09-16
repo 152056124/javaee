@@ -23,7 +23,6 @@ public class InsertStudentServlet extends HttpServlet {
         student.setSname(req.getParameter("sname"));
         student.setSbirthday(req.getParameter("sbirth"));
         student.setSex(req.getParameter("sex"));
-        System.out.println(student.toString());
         studentMapper.insertStudent(student);
         resp.sendRedirect("select");
     }
