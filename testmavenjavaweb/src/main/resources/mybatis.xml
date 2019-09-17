@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--设置日志-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--设置别名，该标签不能位于settings之上-->
+    <typeAliases>
+<!--        <typeAlias type="com.ztc.entity.Student" alias="Students"></typeAlias>-->
+        <package name="com.ztc.entity"/>
+    </typeAliases>
+
+    <!-- 配置数据源，数据库连接信息，支持配置多个，default为默认连接信息   -->
+    <environments default="development">
+        <!-- 配置一个数据库连接信息 -->
+        <environment id="development">
+            <!--配置事务管理模式，让mybatis采用jdbc的管理模式 -->
+            <transactionManager type="JDBC"/>
+            <!--配置连接池，数据库连接信息，type指明用哪个连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/demo01?userUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="12358"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="com/ztc/mapper/StudentMapper.xml"/>
+    </mappers>
+</configuration>
