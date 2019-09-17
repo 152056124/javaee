@@ -15,7 +15,6 @@ public class InsertStudentServlet extends HttpServlet {
     @Override
     public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
-        System.out.println(11);
         SqlSession sqlSession = SqlSessionUntil.getSqlSession();
         StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
         Student student = new Student();
