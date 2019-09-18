@@ -10,7 +10,7 @@
     </settings>
     <!--设置别名，该标签不能位于settings之上-->
     <typeAliases>
-<!--        <typeAlias type="com.ztc.entity.Student" alias="Students"></typeAlias>-->
+<!--        <typeAlias type="com.com.ztc.entity.Student" alias="Students"></typeAlias>-->
         <package name="com.ztc.entity"/>
     </typeAliases>
 

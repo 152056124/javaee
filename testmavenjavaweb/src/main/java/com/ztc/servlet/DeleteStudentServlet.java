@@ -19,6 +19,6 @@ public class DeleteStudentServlet extends HttpServlet {
         String sid = req.getParameter("sid");
         StudentMapper studentMapper = getSqlSession().getMapper(StudentMapper.class);
         int i = studentMapper.deleteStudentById(sid);
-        res.sendRedirect("select");
+        res.sendRedirect("index.jsp");
     }
 }

@@ -21,6 +21,6 @@ public class UpdateStudentServlet extends HttpServlet {
         student.setSbirthday(req.getParameter("sbirth"));
         student.setSex(req.getParameter("sex"));
         int i = mapper.updateStudentById(student);
-        resp.sendRedirect("select");
+        resp.sendRedirect("index.jsp");
     }
 }
